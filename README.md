@@ -23,19 +23,20 @@ leetcode online practice, which is a algorithm  design routine that could help d
 
   - you should handle the input and the output now
   - you should prepare all the parameters for you `Solution` member function here
+  - sample in `leetcode/src/zhanghong/src/echo/echo_test.cc` will how to write a proper test file
 
 - run all your test
 
   When you have done all your code jobs, you may use the following commands to run your unit tests.
 
-  - compile them by `g++ xxx_test.cc -o main -lgtest_main -lpthread`
+  - compile them by `g++ xxx_test.cc xxx.cc -I./ -I/usr/local/include/ -o main -lgtest -lgtest_main -lpthread -g`
   - execute it by `/main`
-  - you will see whether all your test all passed or you should check your implementation file
+  - you will see whether all your test passed or you might check your implementation file
 
 - upload your code to `gitlab`
 
   - tool kits, like`sourceTree`, are highly recommended
-  - you should only do your  all job **in your own branch**
+  - you should only do your all coding job **in your own branch**(it looks like `dev_username`)
   - you should `@someone` for `peer review/code review`
 
 - hope you enjoy it
