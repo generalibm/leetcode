@@ -70,7 +70,7 @@ leetcode online practice, which is a algorithm  design routine that could help d
   }
   ```
 
-  then, compile it with `g++00004_median_of_two_sorted_arrays_test.cc -lgtest lgtest_main -lpthread -std=c++11` and run it with `./a.out`, which will generate **googletest framework** output message, like the following:
+  then, compile it with `g++00004_median_of_two_sorted_arrays_test.cc -lgtest -lgtest_main -lpthread -std=c++11` and run it with `./a.out`, which will generate **googletest framework** output message, like the following:
 
   ```bash
   Running main() from gtest_main.cc
@@ -215,6 +215,8 @@ leetcode online practice, which is a algorithm  design routine that could help d
   /// 00004_median_of_two_sorted_arrays_test.cc
   #include "gtest/gtest.h"
   
+  #include "00004_median_of_two_sorted_arrays.h"
+  
   class SolutionTest : public ::testing::Test {
   protected:
       Solution sol;    
@@ -247,6 +249,8 @@ leetcode online practice, which is a algorithm  design routine that could help d
 
   ```c++
   /// 00004_median_of_two_sorted_arrays.cc
+  #include "00004_median_of_two_sorted_arrays.h"
+  
   double Solution::findMedianSortedArrays(const vector<int>& nums1, const vector<int>& nums2)
   {
   	const vector<int> res = mergeSort(nums1, nums2);
@@ -277,9 +281,9 @@ leetcode online practice, which is a algorithm  design routine that could help d
   
   ```
 
-  Now, compile it with `g++00004_median_of_two_sorted_arrays.cc00004_median_of_two_sorted_arrays_test.cc -I./ -lgtest lgtest_main -lpthread -std=c++11  `.
+  Now, compile it with `g++ 00004_median_of_two_sorted_arrays.cc 00004_median_of_two_sorted_arrays_test.cc -I./ -lgtest -lgtest_main -lpthread -std=c++11  `.
 
-  Then it actually will pass the two test cases. BUT when realized that the problem should be solved with **O(log(m+n))**, we would suddenly reach the `binary search` category. 
+  Then it actually will pass the two test cases. BUT when realized that the problem should be solved with **O(log(m+n))**, we would suddenly reach the `binary search` category(the following reasonable text could be put into the *.md file).
 
   >To solve this problem, we need to understand "What is the use of median". In statistics, the median is used for `dividing a set into two equal length subsets, that one subset is always greater than the other`. If we understand the use of median for dividing, we are very close to the answer.
   >
@@ -481,6 +485,7 @@ leetcode online practice, which is a algorithm  design routine that could help d
 
   ```c++
   /// 00004_median_of_two_sorted_arrays.cc
+  #include "00004_median_of_two_sorted_arrays.h"
   
   double Solution::findMedianSortedArrays(const vector<int> & nums1, const vector<int> & nums2) 
   {
@@ -534,7 +539,7 @@ leetcode online practice, which is a algorithm  design routine that could help d
   
   ```
 
-  notice that `std::min()` is just support in after `c++14` not `c++11` , so we should compile the code using `g++00004_median_of_two_sorted_arrays_test.cc -lgtest lgtest_main -lpthread -std=c++14` and run it `./a.out`, now we can see what **googletest framework** tells us. May it be 
+  notice that `std::min()` is just support in after `c++14` not `c++11` , so we should compile the code using `g++ 00004_median_of_two_sorted_arrays_test.cc 00004_median_of_two_sorted_arrays.cc -I./ -lgtest -lgtest_main -lpthread -std=c++14` and run it `./a.out`, now we can see what **googletest framework** tells us. May it be 
 
   ```bash
   Running main() from gtest_main.cc
@@ -559,7 +564,7 @@ leetcode online practice, which is a algorithm  design routine that could help d
   
   #include "gtest/gtest.h"
   
-  #include ""
+  #include "00004_median_of_two_sorted_arrays.h"
   
   class SolutionTest : public ::testing::Test {
   protected:
