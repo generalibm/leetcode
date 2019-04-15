@@ -7,14 +7,26 @@ protected:
 	Solution sol;
 };
 
-TEST_F(SolutionTest, PositiveNumber)
+TEST_F(SolutionTest, TrimWhitespace)
+{
+    EXPECT_EQ(648, sol.myAtoi("     648"));
+    EXPECT_EQ(648, sol.myAtoi("   +648"));
+    EXPECT_EQ(-648, sol.myAtoi("   -648"));
+}
+
+TEST_F(SolutionTest, StartWithNumber)
 {
 	EXPECT_EQ(648, sol.myAtoi("648"));
 }
 
-TEST_F(SolutionTest, NagtiveNumber)
+TEST_F(SolutionTest, StartWithNagtiveMark)
 {
-	EXPECT_EQ(-64, sol.myAtoi("-64-"));
+	EXPECT_EQ(-64, sol.myAtoi("-64"));
+}
+
+TEST_F(SolutionTest, StartWithPositiveMark)
+{
+    EXPECT_EQ(64, sol.myAtoi("+64"));
 }
 
 TEST_F(SolutionTest, LowerBoundry)
@@ -42,14 +54,8 @@ TEST_F(SolutionTest, FirstNumber)
 	EXPECT_EQ(4193, sol.myAtoi("4193 with words 946"));
 }
 
-TEST_F(SolutionTest, StartWithWhitespace)
+TEST_F(SolutionTest, ContinusMark)
 {
-	EXPECT_EQ(-42, sol.myAtoi("   -42"));
-	EXPECT_EQ(42, sol.myAtoi("     42"));
-	EXPECT_EQ(42, sol.myAtoi("    +42"));
-}
-
-TEST_F(SolutionTest, StartWithPositiveMark)
-{
-	EXPECT_EQ(4, sol.myAtoi("+4"));
+    EXPECT_EQ(0, sol.myAtoi("+-45"));
+    EXPECT_EQ(0, sol.myAtoi("-+45"));
 }
