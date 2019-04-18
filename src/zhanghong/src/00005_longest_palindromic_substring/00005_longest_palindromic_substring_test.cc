@@ -33,3 +33,24 @@ TEST_F(SolutionTest, Example2)
 {
     EXPECT_EQ("bb", sol.longestPalindrome("cbbd"));
 }
+
+TEST_F(SolutionTest, EmptyString)
+{
+    EXPECT_EQ("", sol.longestPalindrome(""));
+}
+
+TEST_F(SolutionTest, OnlyOneChar)
+{
+    EXPECT_EQ("b", sol.longestPalindrome("b"));
+}
+
+TEST_F(SolutionTest, DiffTwoChar)
+{
+    EXPECT_EQ("b", sol.longestPalindrome("bd"));
+}
+
+TEST_F(SolutionTest, AllPalindrome)
+{
+    EXPECT_EQ("abcba", sol.longestPalindrome("abcba"));
+}
+
