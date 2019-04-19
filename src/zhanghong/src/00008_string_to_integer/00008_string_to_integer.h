@@ -6,7 +6,7 @@ using namespace std;
 
 class Solution {
 public:
-	int myAtoi(string str);
+	int myAtoi(const string & rhs);
 
 private:
     char head(const string & rhs);

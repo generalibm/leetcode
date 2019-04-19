@@ -1,19 +1,17 @@
 #include "00008_string_to_integer.h"
 
-int Solution::myAtoi(string str)
+int Solution::myAtoi(const string & rhs)
 {
-	if (!isPositiveMark(head(str)) && !isDigit(head(str)) && !isNagativeMark(head(str)) && !isWhitespace(head(str))) return 0;
+    string str = rhs;
+    while (isWhitespace(head(str)))
+    {
+        str.erase(0, 1);
+    }
+
+    if (!isPositiveMark(head(str)) && !isNagativeMark(head(str)) && !isDigit(head(str)))
+        return 0;
 
 	long res = 0;
-
-	for (auto elem : str)
-	{
-		if (isPositiveMark(elem))
-		{
-			size_t it = str.find(elem);
-			str.erase(0, ++it);
-		}
-	}
 
 	res = std::atol(str.c_str());
 
