@@ -2,7 +2,9 @@
 
 #include "00005_longest_palindromic_substring.h"
 
-class SolutionTest : public ::testing::Test {
+namespace SolutionTest_00005 {
+
+class SolutionTest00005 : public ::testing::Test {
 protected:
     Solution sol;
 };
@@ -24,33 +26,34 @@ protected:
 //    EXPECT_EQ(false, sol.isPalindromic("abab"));
 //}
 
-TEST_F(SolutionTest, Example1)
+TEST_F(SolutionTest00005, Example1)
 {
-    EXPECT_EQ("aba", sol.longestPalindrome("babad"));
+    EXPECT_EQ("bab", sol.longestPalindrome("babad"));
 }
 
-TEST_F(SolutionTest, Example2)
+TEST_F(SolutionTest00005, Example2)
 {
     EXPECT_EQ("bb", sol.longestPalindrome("cbbd"));
 }
 
-TEST_F(SolutionTest, EmptyString)
+TEST_F(SolutionTest00005, EmptyString)
 {
     EXPECT_EQ("", sol.longestPalindrome(""));
 }
 
-TEST_F(SolutionTest, OnlyOneChar)
+TEST_F(SolutionTest00005, OnlyOneChar)
 {
     EXPECT_EQ("b", sol.longestPalindrome("b"));
 }
 
-TEST_F(SolutionTest, DiffTwoChar)
+TEST_F(SolutionTest00005, DiffTwoChar)
 {
     EXPECT_EQ("b", sol.longestPalindrome("bd"));
 }
 
-TEST_F(SolutionTest, AllPalindrome)
+TEST_F(SolutionTest00005, AllPalindrome)
 {
     EXPECT_EQ("abcba", sol.longestPalindrome("abcba"));
 }
 
+};
