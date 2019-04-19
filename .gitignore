@@ -1,4 +1,7 @@
 *.o
+.autotools
+.cproject
 .project
 .settings/*
 .idea/*
+/Default/
