@@ -29,5 +29,21 @@
 
 
 **Solution Analysis**
-- Brute-force Approach
-- 
+
+- **Brute-force Approach**
+
+> The idea is to find all the reverse pairs and then pick up the biggest two. We should make sure the two do not cover each other, which is much hard.
+
+> BUT, we could get max profix for every two divided parts in `O(n)`, the total is `O(n^2)`, and compare it to original problem which is `O(n)`
+
+- Time 		: O(n^2)
+- Space		: O(1)
+- Result 	: Time Limit Exceeded
+
+- **Dynamic Programming**
+
+> 
+
+- Time 		: O(n)
+- Space		: O(1)
+- Result 	: AC
