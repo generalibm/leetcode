@@ -2,38 +2,48 @@
 
 using namespace Solution10;
 
+//bool Solution::isMatch(string s, string p)
+//{
+//    int i = 0;
+//
+//    for (int j = 0; i < s.size() && j < p.size();)
+//    {
+//        if (s[i] == p[j] || p[j] == '.')
+//        {
+//            i++;j++;
+//        }
+//        else
+//        {
+//            j++;
+//        }
+//
+//        if (p[j] == '*')
+//        {
+//            if ((p[j - 1] == s[i] || p[j - 1] == '.') && j > 0)
+//            {
+//                i++;
+//            }
+//            else
+//            {
+//                j++;
+//            }
+//        }
+//    }
+//
+//    return i == s.size();
+//}
+
+// Modern cpp library support Approach
+// Time     :
+// Space    :
+// Result   : AC
+#include <regex>
 bool Solution::isMatch(string s, string p)
 {
-    int i = 0;
+    regex reg(p);
 
-    for (int j = 0; i < s.size() && j < p.size();)
-    {
-        if (p[j] == '*')
-        {
-            if ((p[j-1] == s[i] || p[j-1] == '.') && j > 0)
-            {
-                i++;continue;
-            }
-            else
-            {
-                j++;
-            }
-        }
-
-        if (s[i] == p[j] || p[j] == '.')
-        {
-            i++;j++;
-        }
-        else
-        {
-            j++;
-        }
-    }
-
-    return i == s.size();
+    return regex_match(s, reg);
 }
-
-
 
 
 
