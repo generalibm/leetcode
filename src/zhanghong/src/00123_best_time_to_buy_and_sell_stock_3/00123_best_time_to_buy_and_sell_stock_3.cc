@@ -93,22 +93,47 @@ vector<int> getReverseDP(const vector<int> & data)
 
 // Brute-force Approach optimization
 // Time     : O(n)
+// Space    : O(n)
+// Result   : AC
+//int Solution::maxProfit(const vector<int>& prices)
+//{
+//    if (prices.size() < 2)
+//        return 0;
+//
+//    vector<int> dp = getDP(prices);
+//    vector<int> dp_reverse = getReverseDP(prices);
+//
+//    int max = 0;
+//
+//    for (int i = 0 ; i < dp.size() - 1; i++)
+//    {
+//        max = std::max(max, dp[i] + dp_reverse[i+1]);
+//    }
+//
+//    return max;
+//}
+
+// Dynamic Programming Approach
+// Time     : O(n)
 // Space    : O(1)
-// Result   : Time limit Exceeded
+// Result   : AC
+#include <climits>
 int Solution::maxProfit(const vector<int>& prices)
 {
-    if (prices.size() < 2)
-        return 0;
+    if (prices.empty()) return 0;
 
-    vector<int> dp = getDP(prices);
-    vector<int> dp_reverse = getReverseDP(prices);
+    int s1 = -prices.front();
+    int s2 = INT_MIN;
+    int s3 = INT_MIN;
+    int s4 = INT_MIN;
 
-    int max = 0;
-
-    for (int i = 0 ; i < dp.size() - 1; i++)
+    for (size_t i = 1; i < prices.size(); i++)
     {
-        max = std::max(max, dp[i] + dp_reverse[i+1]);
+        s1 = max(s1, -prices[i]);
+        s2 = max(s2, s1 + prices[i]);
+        s3 = max(s3, s2 - prices[i]);
+        s4 = max(s4, s3 + prices[i]);
     }
 
-    return max;
+    return max(0, s4);
 }
