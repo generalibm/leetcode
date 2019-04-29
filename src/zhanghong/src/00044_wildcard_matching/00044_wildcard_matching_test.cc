@@ -27,7 +27,7 @@ TEST_F(SolutionTest, Example4)
 {
     EXPECT_TRUE(sol.isMatch("adceb", "*a*b"));
 }
-#endif
+
 TEST_F(SolutionTest, Example5)
 {
     EXPECT_FALSE(sol.isMatch("acdcb", "a*c?b"));
@@ -43,7 +43,7 @@ TEST_F(SolutionTest, WrongAnswer1)
 {
     EXPECT_TRUE(sol.isMatch("ho", "ho**"));
 }
-
+#endif
 TEST_F(SolutionTest, WrongAnswer2)
 {
     EXPECT_FALSE(sol.isMatch("mississippi", "m??*ss*?i*pi"));
