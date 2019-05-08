@@ -1,0 +1,17 @@
+
+#ifndef SRC_ZHANGHONG_SRC_00084_LARGEST_RECTANGLE_IN_HISTOGRAM_00084_LARGEST_RECTANGLE_IN_HISTOGRAM_H_
+#define SRC_ZHANGHONG_SRC_00084_LARGEST_RECTANGLE_IN_HISTOGRAM_00084_LARGEST_RECTANGLE_IN_HISTOGRAM_H_
+
+#include <vector>
+using namespace std;
+
+namespace Solution84 {
+
+class Solution {
+public:
+    int largestRectangleArea(const vector<int>& heights);
+};
+
+}
+
+#endif /* SRC_ZHANGHONG_SRC_00084_LARGEST_RECTANGLE_IN_HISTOGRAM_00084_LARGEST_RECTANGLE_IN_HISTOGRAM_H_ */
