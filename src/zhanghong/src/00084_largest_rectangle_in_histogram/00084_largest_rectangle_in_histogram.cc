@@ -93,18 +93,60 @@ int largestRectangleArea(const int * data, int left, int right)
 
 /// Divide and conquer Approach
 /// Time    : O(n*log(n))
-/// Space   : O(1)
+/// Space   : O(n)
+/// Result  : AC
+//int Solution84::Solution::largestRectangleArea(const vector<int>& heights)
+//{
+//    if (heights.empty()) return 0;
+//
+//    int res = ::largestRectangleArea(heights.data(), 0, heights.size()-1);
+//
+//    vector<int> rever_heights(heights);
+//    std::reverse(rever_heights.begin(), rever_heights.end());
+//    int reverse_res = ::largestRectangleArea(rever_heights.data(), 0, rever_heights.size()-1);
+//
+//    return std::max(res, reverse_res);
+//}
+
+/// Dynamic programming Approach
+/// Time    : O(n)
+/// Space   : O(n)
 /// Result  : AC
 int Solution84::Solution::largestRectangleArea(const vector<int>& heights)
 {
     if (heights.empty()) return 0;
 
-    int res = ::largestRectangleArea(heights.data(), 0, heights.size()-1);
+    const int len = heights.size();
+    vector<int> left(len, -1);
+    vector<int> right(len, len);
 
-    vector<int> rever_heights(heights);
-    std::reverse(rever_heights.begin(), rever_heights.end());
-    int reverse_res = ::largestRectangleArea(rever_heights.data(), 0, rever_heights.size()-1);
+    int p = 0;
+    for (int i = 1; i < len; i++)
+    {
+        p = i - 1;
+        while (0 <= p && heights[i] <= heights[p])
+        {
+            p = left[p];
+        }
+        left[i] = p;
+    }
 
-    return std::max(res, reverse_res);
+    for (int i = len - 2; i >= 0; i--)
+    {
+        p = i + 1;
+        while (p < len && heights[i] <= heights[p])
+        {
+            p = right[p];
+        }
+        right[i] = p;
+    }
+
+    int max = heights.front();
+    for (int i = 0; i < len; i++)
+    {
+        max = std::max(max, heights[i] * (right[i] - left[i] - 1));
+    }
+
+    return max;
 }
 
