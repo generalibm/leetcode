@@ -594,4 +594,15 @@ leetcode online practice, which is a algorithm  design routine that could help d
 
   And check whether all of these could be passed.
 
-  
+
+### Upload code & commit format
+
+You are recommend to use git tool(like sourceTree, gitKaren, etc) to track and to deploy your code. But here , you should follow the **team commit format**.
+
+For instance:
+
+```bash
+[ADD] Add leetcode 72, edit distance, Hard, AC, O(n^2), O(n^2)
+[MOD] mod leetcode 72, add dynamic programming approach, AC, optimized time complexity to O(n)
+```
+
