@@ -1,7 +1,10 @@
 *.o
+*.pyc
+*.pydevproject
 .autotools
 .cproject
 .project
+.__pycache__/*
 .settings/*
 .idea/*
 /Default/
