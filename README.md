@@ -33,10 +33,10 @@ leetcode online practice, which is a algorithm  design routine that could help d
   - execute it by `/main`
   - you will see whether all your test passed or you might check your implementation file
 
-- upload your code to `gitlab`
+- upload your code to *git ropository*
 
-  - tool kits, like`sourceTree`, are highly recommended
-  - you should only do your all coding job **in your own branch**(it looks like `dev_username`)
+  - tool kits, like *sourceTree* / *gitKraken*, are highly recommended
+  - you should only do your all coding job **in your own branch**(such as `dev`)
   - you should `@someone` for `peer review/code review`
 
 - hope you enjoy it
@@ -597,7 +597,7 @@ leetcode online practice, which is a algorithm  design routine that could help d
 
 ### Upload code & commit format
 
-You are recommend to use git tool(like sourceTree, gitKaren, etc) to track and to deploy your code. But here , you should follow the **team commit format**.
+You are recommend to use git tool(like *sourceTree*, *gitKraken*, etc) to track and to deploy your code. But here , you should follow the **team commit format**.
 
 For instance:
 
