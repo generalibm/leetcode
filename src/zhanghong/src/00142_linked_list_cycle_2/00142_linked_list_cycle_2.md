@@ -75,3 +75,6 @@ Explanation: There is no cycle in the linked list.
 **Time**: O(n)
 
 **Space**: O(1)
+
+**Result:** AC
+

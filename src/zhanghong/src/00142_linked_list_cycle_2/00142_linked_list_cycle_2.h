@@ -43,6 +43,4 @@ public:
     }
 };
 
-
-
 #endif /* SRC_ZHANGHONG_SRC_00142_LINKED_LIST_CYCLE_2_00142_LINKED_LIST_CYCLE_2_H_ */
