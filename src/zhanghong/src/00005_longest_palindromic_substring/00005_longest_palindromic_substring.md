@@ -18,6 +18,7 @@
 #### Approach 1
 
 **Brute-force Solution:**
+
 > brute-force with O(n^3)--O(n^2) pairs and O(n) for checking palindrome.
 
 ```c++
@@ -59,10 +60,12 @@ string longestPalindrome(const string & rhs)
 > BUT, it will just pass 59/103 test cases.
 
 **Decrease complexity**
+
 > Since the checking costs O(n) time, we can reduce it to O(1) by reusing some previous computation.
 
 #### Approach 2
-** Expand Around Center**
+**Expand Around Center**
+
 > In fact, we could solve it in `O(n^2)` time using only constant space.
 > We observe that a palindrome mirrors around its center. Therefore, a palindrome can be expanded from its center, and there are only `2n−1` such centers.
 > You might be asking why there are `2n−1` but not `n` centers? The reason is the center of a palindrome can be in between two letters. Such palindromes have even number of letters (such as "abba") and its center are between the two 'b's.
@@ -93,3 +96,6 @@ int expandAroundCenter(const string & s, int left, int right) {
 }
 ```
 
+### Approach 3
+
+**Manacher Algorithm**
