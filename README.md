@@ -606,3 +606,41 @@ For instance:
 [MOD] mod leetcode 72, add dynamic programming approach, AC, optimized time complexity to O(n)
 ```
 
+
+
+### Write and run/debug codes with VScode
+
+You would perhaps want to write your code with IDE, here VScode can be a alternative. 
+
+Step1: add a workspace folder into the VScode, for example, choose `00733_flood_fill`
+
+Step2: build your coding files in the above folder, for example `clang++ -std=c++17 -lgtest -lgtest_main -g *.cc`
+
+Step2: configure the launch json file like this
+
+```json
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(lldb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/a.out",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb"
+        }
+    ]
+}
+```
+
+then, you can debug your codes with `F5`.
+
+### Write and run/debug codes with Eclipse
