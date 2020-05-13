@@ -22,6 +22,7 @@ Explanation: Remove the leading 1 and the number is 200. Note that the output mu
 **Explanation:** Remove all the digits from the number and it is left with nothing which is 0.
 
 ## Solution Analysis
+### Greedy approach
 
 ```c++
 string removeKdigits(string num, int k) 
@@ -39,8 +40,10 @@ string removeKdigits(string num, int k)
         res.push_back(c);
     }
 
+    // for case "1111"
     while (k--) res.pop_back();
 
+    // for case "0120"
     int idx = 0;
     while (idx < res.size())
     {
@@ -51,3 +54,6 @@ string removeKdigits(string num, int k)
     return idx == res.size() ? "0" : res.substr(idx);
 }
 ```
+**Time Complexity:** O(N)
+**Space complexity:** O(N)
+**Result:** Accept
