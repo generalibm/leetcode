@@ -19,10 +19,10 @@ ListNode<T> * vec2list(const vector<T> & vec)
         cur = cur->next;
     }
 
-    ListNode<T> * tmp = head;
+    cur = head;
     head = head->next;
-    delete tmp;
-    tmp = nullptr;
+    delete cur;
+    cur = nullptr;
 
     return head;
 }
