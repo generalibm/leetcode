@@ -23,18 +23,54 @@ The problem can be transfered to
 
 so, a intuitive approach is to sort the array, and then count the number from iteratoring.
 
-
-
 **cpp code sample:**
 
 ```cpp
+int hIndex(vector<int>& citations) {
+    sort(citations.begin(), citations.end());
+    int h = 0;
+    for (int i = citations.size() - 1; i >= 0; i--)
+    {
+        if (citations[i] <= h) break;
+        h++;
+    }
+    
+    return h;
+}
+```
+**Result:** AC
+**Time complexity:** O(nlogn)
+**Space complexity:** O(1)
 
+### Approach 1 -- from bucket sort
+When we say counting the total number from a array, it usually can be viewed as recording the appearence of the elements with an extra recording array, which is a little bit like the way that bucket sort does.
+
+**Cpp code sample**
+```cpp
+int hIndex(vector<int>& citations) {
+    int len = citations.size();
+    vector<int> recds(len + 1, 0);
+    
+    for (const int cit : citations)
+    {
+        if (cit > len) recds[len]++;
+        else recds[cit]++;
+    }
+    
+    int total = 0;
+    int h = 0;
+    for (int i = len; i >= 0; i--)
+    {
+        total += recds[i];
+        if (total >= i) {h = i; break;}
+        
+    }
+    
+    return h;
+}
 ```
 
+**Result:** AC (0ms)
+**Time complexity:** O(n)
+**Space complexity:** O(n)
 
-
-**Result:** AC (8ms)
-
-**Time complexity:** O(nlogn)
-
-**Space complexity:** O(1)
