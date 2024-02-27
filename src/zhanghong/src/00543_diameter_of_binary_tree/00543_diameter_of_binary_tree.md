@@ -69,7 +69,7 @@ public:
 ```
 
 ### python3 version from c++ version
-```python3
+```python
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -95,7 +95,7 @@ class Solution:
 ```
 
 ### Python3 version 2, rewrite as inner function
-```python3
+```python
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -120,7 +120,7 @@ class Solution:
 ```
 
 ### Python3 version 3, rewrite as two return values
-```python3
+```python
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -142,4 +142,52 @@ class Solution:
         depth = max(left_max_depth, right_max_depth) + 1
         max_dia = max(left_max_depth + right_max_depth, left_max_dia, right_max_dia)
         return depth, max_dia        
+```
+
+### Rust version
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+// 
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+impl Solution {
+    pub fn diameter_of_binary_tree(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        let mut ans = vec![0]; // Initialize the variable to store the diameter of the binary tree
+        Solution::height(root, &mut ans); // Calculate the height of the binary tree
+        ans[0] // Return the diameter
+    }
+
+    // Recursive function to calculate the height of the binary tree
+    fn height(node: Option<Rc<RefCell<TreeNode>>>, diameter: &mut Vec<i32>) -> i32 {
+        if let Some(n) = node {
+            // Clone the Rc references before making recursive calls to ensure that each function call has its own reference
+            let n = n.borrow();
+            
+            let height_l = Solution::height(n.left.clone(), diameter); // Calculate the height of the left subtree
+            let height_r = Solution::height(n.right.clone(), diameter); // Calculate the height of the right subtree
+
+            diameter[0] = i32::max(diameter[0], height_l + height_r); // Update the diameter if necessary
+
+            i32::max(height_l, height_r) + 1 // Return the height of the current node
+        } else {
+            0 // Return 0 if the node is None
+        }
+    }
+}
 ```
