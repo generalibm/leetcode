@@ -191,3 +191,46 @@ impl Solution {
     }
 }
 ```
+
+### Rust version with the inner function
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+// 
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cmp;
+use std::cell::RefCell;
+impl Solution {
+    pub fn diameter_of_binary_tree(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        fn traverse(root: Option<Rc<RefCell<TreeNode>>>, mut max: &mut i32) -> i32 {
+            if let Some(n) = root {
+                let nb = n.borrow();
+                let left_h = traverse(nb.left.clone(), max);
+                let right_h = traverse(nb.right.clone(), max);
+                *max = cmp::max(*max, left_h + right_h);
+                cmp::max(left_h, right_h) + 1
+            } else {
+                0
+            }
+        }
+        let mut max = 0;
+        traverse(root, &mut max);
+        max
+    }
+}
+```
